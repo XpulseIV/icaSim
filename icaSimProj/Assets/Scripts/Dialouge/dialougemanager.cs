@@ -11,15 +11,11 @@ public class dialougemanager : MonoBehaviour
 
 
     private Queue<string> sentences;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    internal void StartDialogue(Dialouge dialogue)
     {
         sentences = new Queue<string>();
-    }
-    public void StartDialogue(Dialouge dialogue)
-    {
-
+        
         nametext.text = dialogue.name;
 
         sentences.Clear();

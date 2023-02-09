@@ -52,7 +52,7 @@ public class huh : MonoBehaviour
         Player.position = new Vector3(x, y);
         do Goal.position = new Vector3(Random.Range(0, w), Random.Range(0, h));
         while (Vector3.Distance(Player.position, Goal.position) < (w + h) / 4);
-        cam.m_Lens.OrthographicSize = (Mathf.Pow(w / 3 + h / 2, 0.7f) + 1);
+        cam.m_Lens.OrthographicSize = (Mathf.Pow(w / 3 + h / 2, 0.7f) + 1) / 1.5f;
     }
 
     void Update()
