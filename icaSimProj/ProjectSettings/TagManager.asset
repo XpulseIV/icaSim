@@ -43,3 +43,33 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: kassamedkassautankassamedbakgrund
+    uniqueID: 2949118391
+    locked: 0
+  - name: icastig
+    uniqueID: 3772903151
+    locked: 0
+  - name: kassautankassa
+    uniqueID: 2854510459
+    locked: 0
+  - name: kassamedkassa
+    uniqueID: 3206280797
+    locked: 0
+  - name: objects
+    uniqueID: 3995966011
+    locked: 0
+  - name: hand
+    uniqueID: 4005889685
+    locked: 0
+  - name: floor
+    uniqueID: 664380521
+    locked: 0
+  - name: goal
+    uniqueID: 2844390425
+    locked: 0
+  - name: player
+    uniqueID: 4017352755
+    locked: 0
+  - name: wall
+    uniqueID: 3225691699
+    locked: 0

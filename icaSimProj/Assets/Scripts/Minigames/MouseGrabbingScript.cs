@@ -27,8 +27,6 @@ public sealed class MouseGrabbingScript : MonoBehaviour
             Collider2D targetObject = Physics2D.OverlapPoint(this._mousePosition);
             if (targetObject && targetObject.CompareTag("Object"))
             {
-                Debug.Log("Hit");
-
                 this.selectedObject = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
 
                 this._offset = this.selectedObject.transform.position - this._mousePosition;
@@ -43,11 +41,11 @@ public sealed class MouseGrabbingScript : MonoBehaviour
         }
     }
 
-    /*private void FixedUpdate()
+    private void FixedUpdate()
     {
         if (this.selectedObject)
         {
             this.selectedObject.MovePosition(this._mousePosition + this._offset);
         }
-    }*/
+    }
 }
