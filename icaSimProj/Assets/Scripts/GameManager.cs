@@ -31,7 +31,6 @@ public sealed class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        this.icaStig.SetActive(false);
         this.hand.SetActive(true);
         this.kassamedkassakassautankassa.SetActive(true);
 
@@ -54,59 +53,4 @@ public sealed class GameManager : MonoBehaviour
         this._journeyLength = Vector3.Distance(this.moveStartPos, this.moveEndPos);
     }
 
-    private static float F(float t)
-    {
-        float v1 = t * t;
-        float v2 = 1.0f - (1.0f - t) * (1.0f - t);
-        return Mathf.Lerp(v1, v2, t);
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (this.moveStig)
-        {
-            // Distance moved equals elapsed time times speed..
-            float distCovered = (Time.time - this._startTime) * this.moveSpeed;
-
-            // Fraction of journey completed equals current distance divided by total distance.
-            float fractionOfJourney = distCovered / this._journeyLength;
-
-            // Set our position as a fraction of the distance between the markers.
-            this.icaStig.transform.position = Vector3.Lerp(this.moveStartPos, this.moveEndPos, fractionOfJourney);
-
-            if (Math.Abs(this.icaStig.transform.position.y - 1) < 0.05f)
-            {
-                this.calculateNewValues = true;
-                this.moveStig = false;
-            }
-        }
-
-        if (this.calculateNewValues)
-        {
-            this._startTime = Time.time;
-
-            // Calculate the journey length.
-            this._journeyLength = Vector3.Distance(this.moveStartPos, this.moveEndPos);
-            this.calculateNewValues = false;
-            this.strechStig = true;
-        }
-
-        if (this.strechStig)
-        {
-            // Distance moved equals elapsed time times speed..
-            float distCovered = (Time.time - this._startTime) * this.stretchSpeed;
-
-            // Fraction of journey completed equals current distance divided by total distance.
-            float fractionOfJourney = distCovered / this._journeyLength;
-
-            // Set our position as a fraction of the distance between the markers.
-            this.icaStig.transform.localScale = Vector3.Lerp(this.stretchStartPos, this.stretchMoveEndPos,
-                GameManager.F(fractionOfJourney));
-
-            if (!(Math.Abs(this.icaStig.transform.localScale.y - 1) < 0.05f)) return;
-
-            this.strechStig = false;
-        }
-    }
 }
