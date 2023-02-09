@@ -20,7 +20,7 @@ public class clickpersondialouge : MonoBehaviour
     {
         startcolor = GetComponent<Renderer>().material.color;
         GetComponent<Renderer>().material.color
-= Color.yellow;
+= Color.red;
     }
     void OnMouseExit()
     {
