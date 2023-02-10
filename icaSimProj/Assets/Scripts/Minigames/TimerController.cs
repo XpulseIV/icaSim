@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,10 @@ public class TimerController : MonoBehaviour
 {
 
     public GameObject Times_up_text;
-    public Image timer_linear_image;
+    public Image ForeGroundImage;
     float time_remaining;
     public float max_time = 5.0f;
+    private TimeSpan _timeSpan;
     
 
 
@@ -27,7 +29,7 @@ public class TimerController : MonoBehaviour
         if (time_remaining > 0)
         {
             time_remaining -= Time.deltaTime;
-            timer_linear_image.fillAmount = time_remaining / max_time;
+            this.ForeGroundImage.fillAmount = time_remaining / max_time;
         }
         else
         {

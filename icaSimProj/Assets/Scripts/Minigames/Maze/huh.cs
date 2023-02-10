@@ -61,11 +61,10 @@ public sealed class Huh : MonoBehaviour
             }
 
             st[x][y] = 2;
-
-            this.AstarPath.Scan();
         }
 
         dfs(0, 0);
+        this.AstarPath.Scan();
 
         this.x = Random.Range(0, this.w);
         this.y = Random.Range(0, this.h);
@@ -95,7 +94,17 @@ public sealed class Huh : MonoBehaviour
             y = (int)this.player.transform.position.y;
         }
 
-        if (!this.moveP) return;
+        if (!this.moveP)
+        {
+            Vector3 position = this.player.position;
+            float positionX = position.x;
+            float positionY = position.y;
+
+            position = new Vector3(positionX, positionY, 0);
+            this.player.position = position;
+
+            return;
+        }
 
         (int, int, bool[,], int, int, Vector3, int, KeyCode, int)[] dirs =
         {
@@ -130,14 +139,5 @@ public sealed class Huh : MonoBehaviour
         }
 
         this.player.position = Vector3.Lerp(this.player.position, new Vector3(this.x, this.y), Time.deltaTime * 12);
-
-        /*if (Vector3.Distance(this.Player.position, this.Goal.position) < 0.12f)
-            {
-                if (Random.Range(0, 5) < 3)
-                    this.w++;
-                else
-                    this.h++;
-                this.Start();
-            }*/
     }
 }
