@@ -7,7 +7,7 @@ public class MousePull : MonoBehaviour
     public Camera Camera;
     void Start()
     {
-       
+        Cursor.visible = false;
     }
 
 
