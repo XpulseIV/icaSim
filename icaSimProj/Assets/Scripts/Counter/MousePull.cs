@@ -17,6 +17,7 @@ public class MousePull : MonoBehaviour
         mousePosition = Camera.ScreenToWorldPoint(mousePosition);
         mousePosition.z = 0;
         transform.position = mousePosition;
+        Cursor.visible = false;
 
     }
 }
