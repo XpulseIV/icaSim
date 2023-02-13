@@ -93,7 +93,7 @@ public sealed class stigmanager : MonoBehaviour
                                                                             {
                                                                                 QuestionDialogUI.Instance
                                                                                     .ShowQuestion(
-                                                                                        "-good luck kid! see you around?", static () => { },
+                                                                                        "-good luck kid! see you around?", () => { kassamedkassa.SetActive(true); },
                                                                                         static () => { });
                                                                             }, static () => { });
                                                                     }, () => { SceneManager.LoadScene(SceneManager.GetActiveScene().name); });
