@@ -46,6 +46,9 @@ TagManager:
   - name: kassamedkassautankassamedbakgrund
     uniqueID: 2949118391
     locked: 0
+  - name: DialougeStuff
+    uniqueID: 956878411
+    locked: 0
   - name: icastig
     uniqueID: 3772903151
     locked: 0
