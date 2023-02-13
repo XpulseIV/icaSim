@@ -5,11 +5,13 @@ using UnityEngine;
 public class SmashEffect : MonoBehaviour
 {
     public GameObject Smasheffect;
+    public AudioSource aas;
 
     void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(Smasheffect, transform.position, Quaternion.identity);
+        aas.Play();
+
+        Destroy(this.gameObject);
+        Object.Instantiate(this.Smasheffect, transform.position, Quaternion.identity);
     }
-   
 }
