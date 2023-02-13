@@ -246,7 +246,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181993874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
   m_Name: 
@@ -598,7 +598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &900902897
 Transform:
   m_ObjectHideFlags: 0
@@ -704,9 +704,9 @@ GameObject:
   - component: {fileID: 912109519}
   - component: {fileID: 912109518}
   - component: {fileID: 912109517}
-  - component: {fileID: 912109520}
   - component: {fileID: 912109521}
   - component: {fileID: 912109522}
+  - component: {fileID: 912109523}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -780,31 +780,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912109520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912109516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffcbf9674df2ad54599c67f82ca5ee40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holep: 0.012
-  w: 12
-  h: 12
-  x: 0
-  y: 0
-  level: {fileID: 2117605631}
-  player: {fileID: 181993876}
-  goal: {fileID: 288988736}
-  floor: {fileID: 2535601150499396961, guid: 47fe251815d7a4a4ab1affe82e1db3d1, type: 3}
-  wall: {fileID: 2224192756313703704, guid: b4fcc65a52545d647ada466d25709871, type: 3}
-  cam: {fileID: 1862909050}
-  moveP: 1
-  AstarPath: {fileID: 2117605632}
 --- !u!114 &912109521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +847,31 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &912109523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912109516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcbf9674df2ad54599c67f82ca5ee40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holep: 0
+  w: 12
+  h: 12
+  x: 0
+  y: 0
+  level: {fileID: 2117605631}
+  player: {fileID: 181993876}
+  goal: {fileID: 288988736}
+  floor: {fileID: 2535601150499396961, guid: 47fe251815d7a4a4ab1affe82e1db3d1, type: 3}
+  wall: {fileID: 2224192756313703704, guid: b4fcc65a52545d647ada466d25709871, type: 3}
+  cam: {fileID: 1862909050}
+  moveP: 1
+  AstarPath: {fileID: 2117605632}
 --- !u!1 &990425923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1069433322
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,7 +1215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1364850518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117605630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
   m_Name: 
