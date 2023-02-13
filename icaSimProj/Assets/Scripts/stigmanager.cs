@@ -1,7 +1,8 @@
-using System.IO;
-using System.Linq;
-using System.Text;
+using System;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class stigmanager : MonoBehaviour
 {
@@ -26,9 +27,6 @@ public sealed class stigmanager : MonoBehaviour
     public GameObject stig;
     public GameObject hand;
     public GameObject kassamedkassa;
-    public GameObject dialougeSystemYes;
-
-    public Dialouge d;
 
     // Start is called before the first frame update
     private void Start()
@@ -57,6 +55,57 @@ public sealed class stigmanager : MonoBehaviour
         this._journeyLength = Vector3.Distance(this.stretchStartPos, this.stretchEndPos);
     }
 
+    private void StartDialouge()
+    {
+        bool no = false;
+        QuestionDialogUI.Instance.ShowQuestion(
+            "-Hey! You must be the new employee I was told about. Welcome to the job kid!",
+            () =>
+            {
+                QuestionDialogUI.Instance.ShowQuestion("-My name is Stig but you might know me as ICA Stig?",
+                    () =>
+                    {
+                        QuestionDialogUI.Instance.ShowQuestion(
+                            "-Let's get started with your training right away?",
+                            () =>
+                            {
+                                QuestionDialogUI.Instance.ShowQuestion(
+                                    "-your job is to sit here in the register and greet customers. When charging them there are a few things to keep track of!",
+                                    () =>
+                                    {
+                                        QuestionDialogUI.Instance.ShowQuestion(
+                                            "-when scanning the customer's item make sure to not scan 'em too fast or too slow! we don't wanna stress our customers now do we?",
+                                            () =>
+                                            {
+                                                QuestionDialogUI.Instance.ShowQuestion(
+                                                    "- also there will be some underage rascals tryna buy some \"restricted\" items. So make sure to keep track of the customer's ID if they look suspicious?",
+                                                    () =>
+                                                    {
+                                                        QuestionDialogUI.Instance.ShowQuestion(
+                                                            "-if they aint got a valid ID or enough money just click on them to ask them to either leave or cough up the cash?",
+                                                            () =>
+                                                            {
+                                                                QuestionDialogUI.Instance.ShowQuestion(
+                                                                    "-you got all that?", () =>
+                                                                    {
+                                                                        QuestionDialogUI.Instance.ShowQuestion(
+                                                                            "-great kid welcome to the family. Now ill let you get to work ill check up on you at the end of your shift?", () =>
+                                                                            {
+                                                                                QuestionDialogUI.Instance
+                                                                                    .ShowQuestion(
+                                                                                        "-good luck kid! see you around?", static () => { },
+                                                                                        static () => { });
+                                                                            }, static () => { });
+                                                                    }, () => { SceneManager.LoadScene(SceneManager.GetActiveScene().name); });
+                                                            }, static () => { });
+                                                    }, static () => { });
+                                            }, static () => { });
+                                    }, static () => { });
+                            }, static () => { });
+                    }, static () => { });
+            }, static () => { });
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -69,10 +118,12 @@ public sealed class stigmanager : MonoBehaviour
             float fractionOfJourney = distCovered / this._journeyLength;
 
             // Set our position as a fraction of the distance between the markers.
-            this.stig.transform.position = Vector3.Lerp(this.moveStartPos, this.moveEndPos, stigmanager.T(fractionOfJourney));
+            this.stig.transform.position =
+                Vector3.Lerp(this.moveStartPos, this.moveEndPos, stigmanager.T(fractionOfJourney));
 
-            if (this.stig.transform.position.y >= 1.0f)
+            if (this.stig.transform.position.y >= 0.9)
             {
+                this.stig.transform.position = new Vector3(11.8f, 1, 0);
                 this.moveStig = false;
                 this.Stretch();
             }
@@ -86,21 +137,17 @@ public sealed class stigmanager : MonoBehaviour
             // Fraction of journey completed equals current distance divided by total distance.
             float fractionOfJourney = distCovered / this._journeyLength;
 
-            this.stig.transform.localScale = Vector3.Lerp(this.stretchStartPos, this.stretchEndPos, stigmanager.T(fractionOfJourney));
+            this.stig.transform.localScale =
+                Vector3.Lerp(this.stretchStartPos, this.stretchEndPos, stigmanager.T(fractionOfJourney));
 
-            if (this.stig.transform.localScale.y <= 1.5f)
-            {
-                this.stretchStig = false;
-                this.hand.SetActive(false);
-                this.kassamedkassa.SetActive(false);
-                this.dialougeSystemYes.SetActive(true);
+            if (!(this.stig.transform.localScale.y <= 1.5f)) return;
 
-                string[] lines = File.ReadAllLines(Directory.GetCurrentDirectory() + "/Assets/Assets/Text/icastigdialog.txt", Encoding.UTF8).Where(static (line) => line != "�").ToArray()[1..10];
-                this.d = new Dialouge("Ica stig", lines);
+            this.stretchStig = false;
+            this.kassamedkassa.SetActive(false);
+            this.hand.SetActive(true);
 
-                Camera.main!.GetComponent<dialougetrigger>().SetD(this.d);
-                Camera.main!.GetComponent<dialougetrigger>().DialogStart();
-            }
+
+            this.StartDialouge();
         }
     }
 }
