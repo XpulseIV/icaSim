@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ResetPosition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Vector3 startPosition;
     void Start()
     {
-        
+        startPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            transform.position = startPosition;
+        }
     }
 }

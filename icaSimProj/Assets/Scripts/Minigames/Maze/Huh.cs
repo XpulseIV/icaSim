@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +6,8 @@ using System.Linq;
 using Pathfinding;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 public sealed class Huh : MonoBehaviour
@@ -61,11 +64,10 @@ public sealed class Huh : MonoBehaviour
             }
 
             st[x][y] = 2;
-
-            this.AstarPath.Scan();
         }
 
         dfs(0, 0);
+        this.AstarPath.Scan();
 
         this.x = Random.Range(0, this.w);
         this.y = Random.Range(0, this.h);
@@ -74,6 +76,11 @@ public sealed class Huh : MonoBehaviour
             this.goal.position = new Vector3(Random.Range(0, this.w), Random.Range(0, this.h));
         while (Vector3.Distance(this.player.position, this.goal.position) < (this.w + this.h) / 4);
         this.cam.m_Lens.OrthographicSize = (Mathf.Pow(this.w / 3 + this.h / 2, 0.7f) + 1) / 1.5f;
+    }
+
+    public static void ReachedDestination(bool success)
+    {
+        Debug.Log(success ? "You reached the maze without help" : "Suffer the consequences of failing a simple maze");
     }
 
     void Update()
@@ -93,51 +100,59 @@ public sealed class Huh : MonoBehaviour
 
             x = (int)this.player.transform.position.x;
             y = (int)this.player.transform.position.y;
+
+            Huh.ReachedDestination(false);
         }
 
-        if (!this.moveP) return;
-
-        (int, int, bool[,], int, int, Vector3, int, KeyCode, int)[] dirs =
+        if (this.moveP)
         {
-            (this.x - 1, this.y, this._hwalls, this.x, this.y, Vector3.right, 90, KeyCode.A, 0),
-            (this.x + 1, this.y, this._hwalls, this.x + 1, this.y, Vector3.right, 90, KeyCode.D, 1),
-            (this.x, this.y - 1, this._vwalls, this.x, this.y, Vector3.up, 0, KeyCode.S, 2),
-            (this.x, this.y + 1, this._vwalls, this.x, this.y + 1, Vector3.up, 0, KeyCode.W, 3)
-        };
-
-        foreach ((int nx, int ny, bool[,] wall, int wx, int wy, Vector3 sh, int ang, KeyCode k, int idx) in
-                 dirs.OrderBy(static d => Random.value))
-        {
-            if (!Input.GetKeyDown(k)) continue;
-
-            if (wall[wx, wy])
-                this.player.position = Vector3.Lerp(this.player.position, new Vector3(nx, ny), 0.1f);
-            else
+            (int, int, bool[,], int, int, Vector3, int, KeyCode, int)[] dirs =
             {
-                Vector3 newPlayerRot = idx switch
+                (this.x - 1, this.y, this._hwalls, this.x, this.y, Vector3.right, 90, KeyCode.A, 0),
+                (this.x + 1, this.y, this._hwalls, this.x + 1, this.y, Vector3.right, 90, KeyCode.D, 1),
+                (this.x, this.y - 1, this._vwalls, this.x, this.y, Vector3.up, 0, KeyCode.S, 2),
+                (this.x, this.y + 1, this._vwalls, this.x, this.y + 1, Vector3.up, 0, KeyCode.W, 3)
+            };
+
+            foreach ((int nx, int ny, bool[,] wall, int wx, int wy, Vector3 sh, int ang, KeyCode k, int idx) in
+                     dirs.OrderBy(static d => Random.value))
+            {
+                if (!Input.GetKeyDown(k)) continue;
+
+                if (wall[wx, wy])
+                    this.player.position = Vector3.Lerp(this.player.position, new Vector3(nx, ny), 0.1f);
+                else
                 {
-                    0 => new Vector3(0, 0, 90),
-                    1 => new Vector3(0, 0, -90),
-                    2 => new Vector3(0, 0, 180),
-                    3 => new Vector3(0, 0, 0),
-                    _ => default
-                };
+                    Vector3 newPlayerRot = idx switch
+                    {
+                        0 => new Vector3(0, 0, 90),
+                        1 => new Vector3(0, 0, -90),
+                        2 => new Vector3(0, 0, 180),
+                        3 => new Vector3(0, 0, 0),
+                        _ => default
+                    };
 
-                this.player.transform.eulerAngles = newPlayerRot;
+                    this.player.transform.eulerAngles = newPlayerRot;
 
-                (this.x, this.y) = (nx, ny);
+                    (this.x, this.y) = (nx, ny);
+                }
+            }
+
+            this.player.position = Vector3.Lerp(this.player.position, new Vector3(this.x, this.y), Time.deltaTime * 12);
+
+            if (Vector3.Distance(this.player.position, this.goal.position) < 0.12f)
+            {
+                Huh.ReachedDestination(true);
             }
         }
+        else
+        {
+            Vector3 position = this.player.position;
+            float positionX = position.x;
+            float positionY = position.y;
 
-        this.player.position = Vector3.Lerp(this.player.position, new Vector3(this.x, this.y), Time.deltaTime * 12);
-
-        /*if (Vector3.Distance(this.Player.position, this.Goal.position) < 0.12f)
-            {
-                if (Random.Range(0, 5) < 3)
-                    this.w++;
-                else
-                    this.h++;
-                this.Start();
-            }*/
+            position = new Vector3(positionX, positionY, 0);
+            this.player.position = position;
+        }
     }
 }

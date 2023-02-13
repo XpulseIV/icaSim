@@ -1,38 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pathfinding;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class TimerController : MonoBehaviour
+public sealed class TimerController : MonoBehaviour
 {
-
-    public GameObject Times_up_text;
-    public Image timer_linear_image;
-    float time_remaining;
-    public float max_time = 5.0f;
-    
-
-
+    private IAstarAI _playerAi;
+    public GameObject timesUpText;
+    public Image foreGroundImage;
+    private float _timeRemaining;
+    public float maxTime = 5.0f;
+    private TimeSpan _timeSpan;
 
 
-
-    void Start()
+    private void Start()
     {
-        time_remaining = max_time;
+        this._timeRemaining = this.maxTime;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (time_remaining > 0)
+        if (this._timeRemaining > 0)
         {
-            time_remaining -= Time.deltaTime;
-            timer_linear_image.fillAmount = time_remaining / max_time;
+            this._timeRemaining -= Time.deltaTime;
+            this.foreGroundImage.fillAmount = this._timeRemaining / this.maxTime;
         }
         else
         {
-            Times_up_text.SetActive(true);
+            this.timesUpText.SetActive(true);
+            Huh huhh = Camera.main!.GetComponent<Huh>();
+            huhh.AI.destination = huhh.goal.position;
+            huhh.AI.SearchPath();
+            huhh.AI.canMove = true;
+            huhh.moveP = false;
         }
-
     }
 }
