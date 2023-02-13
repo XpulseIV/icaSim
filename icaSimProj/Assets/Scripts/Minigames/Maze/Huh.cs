@@ -19,6 +19,7 @@ public sealed class Huh : MonoBehaviour
     public Transform level, player, goal;
     public GameObject floor, wall;
     public CinemachineVirtualCamera cam;
+    public Transform timerPos;
 
     public bool moveP = true;
 
@@ -67,6 +68,7 @@ public sealed class Huh : MonoBehaviour
         }
 
         dfs(0, 0);
+        this.timerPos.position = new Vector3(Screen.width - 150, Screen.height - 20);
         this.AstarPath.Scan();
 
         this.x = Random.Range(0, this.w);
