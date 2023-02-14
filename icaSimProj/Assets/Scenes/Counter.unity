@@ -1048,7 +1048,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1b55bd4dff7319b4da48a555077117ea, type: 3}
   - {fileID: 21300000, guid: e35b95921bf5ab447b62398245e1009a, type: 3}
   - {fileID: 21300000, guid: 325babd8983b1ca4a91b4f8ea0ddd479, type: 3}
-  - {fileID: 21300000, guid: bf970eb32d1b3a34683915e90e71a35a, type: 3}
+  - {fileID: 21300000, guid: 7003f0f241c72694d9e8613d9082223e, type: 3}
+  - {fileID: 21300000, guid: 55784ee6b49872c4787232f9c1f57f0b, type: 3}
+  - {fileID: 21300000, guid: b6e1de04547240a409966aafdb234d0f, type: 3}
+  - {fileID: 21300000, guid: 9aad302a6bd7157418961b89f29d8e89, type: 3}
   Character: {fileID: 1414668613}
   character: 5
 --- !u!1 &1522348684
