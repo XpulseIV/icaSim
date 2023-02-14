@@ -181,7 +181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -277614541
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 10194d04b626d904595cabf345259469, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450576871
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62464c8f6cbeefe40b07fabf051f1a8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -870,6 +870,7 @@ MonoBehaviour:
   floor: {fileID: 2535601150499396961, guid: 47fe251815d7a4a4ab1affe82e1db3d1, type: 3}
   wall: {fileID: 2224192756313703704, guid: b4fcc65a52545d647ada466d25709871, type: 3}
   cam: {fileID: 1862909050}
+  timerPos: {fileID: 990425924}
   moveP: 1
   AstarPath: {fileID: 2117605632}
 --- !u!1 &990425923
