@@ -8,9 +8,9 @@ public class cashSpawner : MonoBehaviour
 {
    public int number;
 
-
     void Update()
     {
+        
         int tensCount = number / 10;
         int twentiesCount = number / 20;
         int fiftiesCount = number / 50;
