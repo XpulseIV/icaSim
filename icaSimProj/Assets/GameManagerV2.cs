@@ -13,6 +13,7 @@ public sealed class GameManagerV2 : MonoBehaviour
     public static System.Random Rng = new();
     public GameObject Person;
     public GameObject Item;
+    public GameObject kassamedkassa;
 
     public List<Sprite> peopleSprites;
     public List<Sprite> itemSprites;
@@ -31,53 +32,46 @@ public sealed class GameManagerV2 : MonoBehaviour
     {
         int pIdx = GameManagerV2.Rng.Next(0, 49);
         this.Person.GetComponent<SpriteRenderer>().sprite = this.peopleSprites[pIdx];
-    }
 
-    private void SpawnObject()
-    {
-        int oIdx = GameManagerV2.Rng.Next(0, 33);
-        GameObject ob = Object.Instantiate(this.Item, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
-        ob.transform.localScale /= 2;
-        ob.GetComponent<SpriteRenderer>().sprite = this.itemSprites[oIdx];
-        Object.Destroy(ob.GetComponent<Light2D>());
-        Object.Destroy(ob.GetComponent<PolygonCollider2D>());
-        ob.AddComponent<PolygonCollider2D>();
-    }
-
-    private void removeItems()
-    {
-        GameObject[] stuff = GameObject.FindGameObjectsWithTag("Object");
-        foreach (GameObject i in stuff)
+        string[] his =
         {
-            Object.Destroy(i);
-        }
+            "-Good day",
+            "-Morning",
+            "-Hi there sexy",
+            "-Hello young fella"
+        };
+
+        this.kassamedkassa.SetActive(false);
+        QuestionDialogUI.Instance.ShowQuestion(his[new System.Random().Next(0, 4)], () =>
+        {
+            this.kassamedkassa.SetActive(true);
+
+            for (int i = 0; i < GameManagerV2.Rng.Next(1, 4); i++)
+            {
+                this.SpawnObject((i + 1) / 10f);
+            }
+        }, () => { }, false, "Hi");
     }
 
-    private void Day()
-    {
-        Debug.Log("The next day");
-        this.dayCount++;
-        this.timeKeeper._timeRemaining = this.timeKeeper.maxTime;
+private void SpawnObject(float difference)
+{
+    int oIdx = GameManagerV2.Rng.Next(0, 26);
+    GameObject ob = Object.Instantiate(this.Item, new Vector3(12 - difference, 0, 0), Quaternion.Euler(0, 0, 0));
+    ob.transform.localScale /= 2;
+    ob.GetComponent<SpriteRenderer>().sprite = this.itemSprites[oIdx];
+    ob.GetComponent<ItemP>().price = this.itemPrices[oIdx];
+    Object.Destroy(ob.GetComponent<PolygonCollider2D>());
+    ob.AddComponent<PolygonCollider2D>();
+}
 
-        this.removeItems();
-    }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.SpawnPerson();
-        }
+private void Day()
+{
+    Debug.Log("The next day");
+    this.dayCount++;
+    this.timeKeeper._timeRemaining = this.timeKeeper.maxTime;
+}
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            this.SpawnObject();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            this.removeItems();
-        }
-    }
+// Update is called once per frame
+private void Update() { }
 }

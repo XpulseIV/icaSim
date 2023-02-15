@@ -12,23 +12,39 @@ public class QuestionDialogUI : MonoBehaviour {
 
 
     private TextMeshProUGUI textMeshPro;
+    private TextMeshProUGUI yesBtnText;
     private Button yesBtn;
     private Button noBtn;
+
+    private GameObject yesBbtn;
+    private GameObject noBbtn;
 
     private void Awake() {
         Instance = this;
 
         textMeshPro = transform.Find("Text").GetComponent<TextMeshProUGUI>();
         yesBtn = transform.Find("YesBtn").GetComponent<Button>();
+        yesBtnText = this.yesBtn.transform.Find("Text").GetComponent<TextMeshProUGUI>();
         noBtn = transform.Find("NoBtn").GetComponent<Button>();
+
+        this.yesBbtn = transform.Find("YesBtn").gameObject;
+        this.noBbtn = transform.Find("NoBtn").gameObject;
 
         Hide();
     }
 
-    public void ShowQuestion(string questionText, Action yesAction, Action noAction) {
+    public void ShowQuestion(string questionText, Action yesAction, Action noAction, bool showNo = false, string yesText = "Continue") {
         gameObject.SetActive(true);
 
         textMeshPro.text = questionText;
+        this.yesBtnText.text = yesText;
+
+        if (!showNo)
+        {
+            this.yesBbtn.GetComponent<RectTransform>().anchoredPosition -= new Vector2(80, 0);
+            this.noBbtn.SetActive(false);
+        }
+
         yesBtn.onClick.AddListener(() => {
             Hide();
             yesAction();
