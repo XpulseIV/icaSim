@@ -181,7 +181,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -277614541
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 10194d04b626d904595cabf345259469, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1450576871
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62464c8f6cbeefe40b07fabf051f1a8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -704,9 +704,9 @@ GameObject:
   - component: {fileID: 912109519}
   - component: {fileID: 912109518}
   - component: {fileID: 912109517}
-  - component: {fileID: 912109520}
   - component: {fileID: 912109521}
   - component: {fileID: 912109522}
+  - component: {fileID: 912109523}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -780,31 +780,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912109520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912109516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffcbf9674df2ad54599c67f82ca5ee40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  holep: 0.012
-  w: 12
-  h: 12
-  x: 0
-  y: 0
-  level: {fileID: 2117605631}
-  player: {fileID: 181993876}
-  goal: {fileID: 288988736}
-  floor: {fileID: 2535601150499396961, guid: 47fe251815d7a4a4ab1affe82e1db3d1, type: 3}
-  wall: {fileID: 2224192756313703704, guid: b4fcc65a52545d647ada466d25709871, type: 3}
-  cam: {fileID: 1862909050}
-  moveP: 1
-  AstarPath: {fileID: 2117605632}
 --- !u!114 &912109521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +847,32 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &912109523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912109516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcbf9674df2ad54599c67f82ca5ee40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holep: 0
+  w: 12
+  h: 12
+  x: 0
+  y: 0
+  level: {fileID: 2117605631}
+  player: {fileID: 181993876}
+  goal: {fileID: 288988736}
+  floor: {fileID: 2535601150499396961, guid: 47fe251815d7a4a4ab1affe82e1db3d1, type: 3}
+  wall: {fileID: 2224192756313703704, guid: b4fcc65a52545d647ada466d25709871, type: 3}
+  cam: {fileID: 1862909050}
+  timerPos: {fileID: 990425924}
+  moveP: 1
+  AstarPath: {fileID: 2117605632}
 --- !u!1 &990425923
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1063247355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,7 +1327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1519695888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,9 +1340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5f903579ec92d43b9c7587d5839c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Times_up_text: {fileID: 295146409}
-  ForeGroundImage: {fileID: 1954550824}
-  max_time: 180
+  timesUpText: {fileID: 295146409}
+  foreGroundImage: {fileID: 1954550824}
+  maxTime: 30
 --- !u!4 &1519695889
 Transform:
   m_ObjectHideFlags: 0
@@ -1374,7 +1375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1800571994
 MonoBehaviour:
   m_ObjectHideFlags: 0
