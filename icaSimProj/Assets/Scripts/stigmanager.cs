@@ -1,11 +1,20 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Progress;
 
 public sealed class stigmanager : MonoBehaviour
+
+
 {
+    public List<Sprite> SpriteList;
+    public GameObject Item;
+    public int item = 0;
+    private System.Random rng;
+
     public bool moveStig;
     public bool stretchStig;
 
@@ -31,6 +40,8 @@ public sealed class stigmanager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        rng = new();
+
         this._startTime = Time.time;
 
         // Calculate the journey length.
@@ -93,7 +104,22 @@ public sealed class stigmanager : MonoBehaviour
                                                                             {
                                                                                 QuestionDialogUI.Instance
                                                                                     .ShowQuestion(
-                                                                                        "-good luck kid! see you around?", () => { kassamedkassa.SetActive(true); },
+                                                                                        "-good luck kid! see you around?", () => {
+                                                                                            kassamedkassa.SetActive(true);
+
+                                                                                            Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                                                                                            if (Input.GetMouseButtonDown(1))
+                                                                                            {
+                                                                                                this.Item.GetComponent<SpriteRenderer>().sprite = this.SpriteList[rng.Next(0, SpriteList.Count)];
+                                                                                                item++;
+
+                                                                                                if (item >= SpriteList.Count)
+                                                                                                {
+                                                                                                    item = 0;
+                                                                                                }
+                                                                                            }
+                                                                                        },
                                                                                         static () => { });
                                                                             }, static () => { });
                                                                     }, () => { SceneManager.LoadScene(SceneManager.GetActiveScene().name); });
