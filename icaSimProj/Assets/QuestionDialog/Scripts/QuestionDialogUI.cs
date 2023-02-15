@@ -5,11 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class QuestionDialogUI : MonoBehaviour {
-
-    public static QuestionDialogUI Instance { get; private set; }
-
-
+public class QuestionDialogUI : MonoBehaviour
+{
+    internal static QuestionDialogUI Instance { get; private set; }
 
     private TextMeshProUGUI textMeshPro;
     private TextMeshProUGUI yesBtnText;
@@ -19,7 +17,8 @@ public class QuestionDialogUI : MonoBehaviour {
     private GameObject yesBbtn;
     private GameObject noBbtn;
 
-    private void Awake() {
+    private void Awake()
+    {
         Instance = this;
 
         textMeshPro = transform.Find("Text").GetComponent<TextMeshProUGUI>();
@@ -33,7 +32,9 @@ public class QuestionDialogUI : MonoBehaviour {
         Hide();
     }
 
-    public void ShowQuestion(string questionText, Action yesAction, Action noAction, bool showNo = false, string yesText = "Continue") {
+    public void ShowQuestion(string questionText, Action yesAction, Action noAction, bool showNo = false,
+        string yesText = "Continue")
+    {
         gameObject.SetActive(true);
 
         textMeshPro.text = questionText;
@@ -41,22 +42,24 @@ public class QuestionDialogUI : MonoBehaviour {
 
         if (!showNo)
         {
-            this.yesBbtn.GetComponent<RectTransform>().anchoredPosition -= new Vector2(80, 0);
+            this.yesBbtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -35);
             this.noBbtn.SetActive(false);
         }
 
-        yesBtn.onClick.AddListener(() => {
+        yesBtn.onClick.AddListener(() =>
+        {
             Hide();
             yesAction();
         });
-        noBtn.onClick.AddListener(() => {
+        noBtn.onClick.AddListener(() =>
+        {
             Hide();
             noAction();
         });
     }
 
-    private void Hide() {
+    private void Hide()
+    {
         gameObject.SetActive(false);
     }
-    
 }
