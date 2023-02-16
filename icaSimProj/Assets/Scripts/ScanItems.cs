@@ -16,6 +16,8 @@ public sealed class ScanItems : MonoBehaviour
     public List<Collider2D> collisions;
     public List<Collider2D> itemList;
     public GameObject kassamedkassacanvas;
+    public List<Sprite> forbiddenItems;
+    public List<int> hmmm;
 
     public GameObject money50;
     public GameObject money20;
@@ -45,9 +47,8 @@ public sealed class ScanItems : MonoBehaviour
     public void OnScan()
     {
         int actualItems = GameObject.FindGameObjectsWithTag("Object").Length;
-        int itemsInScanningArea = this.collisions.Count;
 
-        if (actualItems != itemsInScanningArea)
+        if (actualItems != this.itemList.Count)
         {
             this.kassamedkassacanvas.SetActive(false);
             QuestionDialogUI.Instance.ShowQuestion(
@@ -71,14 +72,55 @@ public sealed class ScanItems : MonoBehaviour
             int randomNumber = (bytes[0] % 100) + 1;
             bool characterAffordsItems = randomNumber <= 65;
 
+            bool demandId = this.itemList.Any(i => i.gameObject.GetComponent<SpriteRenderer>().sprite == this.forbiddenItems.Any());
+
+            hmmm = Enumerable.Range(10, Convert.ToInt32(this.Price.text) - 10).Where(x => (x % 10) == 0).ToList();
+            this.SpawnMoney(Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count)));
+            /*if (demandId)
+            {
+                
+            }
+
             switch (characterAffordsItems)
             {
                 case true:
-                    this.SpawnMoney(Convert.ToInt32(this.Price.text));
+                    
                     break;
                 case false:
+                    QuestionDialogUI.Instance.ShowQuestion("-you don't have enough money", () =>
+                    {
+                        this.kassamedkassacanvas.SetActive(false);
+                        switch (new System.Random().Next(0, 2))
+                        {
+                            case 0:
+                                QuestionDialogUI.Instance.ShowQuestion("-Please let me buy this", () =>
+                                {
+                                    this.kassamedkassacanvas.SetActive(true);
+
+                                    GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                                    for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                                    {
+                                        Object.Destroy(someExtrasHuh[i]);
+                                    }
+                                }, () => { }, true, "No");
+                                break;
+                            case 1:
+                                QuestionDialogUI.Instance.ShowQuestion("-Please this is all i got, I need to feed my family",
+                                    () =>
+                                    {
+                                        this.kassamedkassacanvas.SetActive(true);
+
+                                        GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                                        for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                                        {
+                                            Object.Destroy(someExtrasHuh[i]);
+                                        }
+                                    }, () => { }, true, "No");
+                                break;
+                        }
+                    }, () => { });
                     break;
-            }
+            }*/
         }
     }
 
@@ -96,7 +138,7 @@ public sealed class ScanItems : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.SpawnMoney(new System.Random().Next(10, 171));
+            this.SpawnMoney(2023);
         }
     }
 }

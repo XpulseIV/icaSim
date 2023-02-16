@@ -25,7 +25,7 @@ public sealed class MouseGrabbingScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Collider2D targetObject = Physics2D.OverlapPoint(this._mousePosition);
-            if (targetObject && targetObject.CompareTag("Object"))
+            if (targetObject && targetObject.CompareTag("Object") || targetObject && targetObject.CompareTag("Money"))
             {
                 this.selectedObject = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
 
