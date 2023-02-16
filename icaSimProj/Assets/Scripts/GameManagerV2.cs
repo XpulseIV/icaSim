@@ -30,8 +30,10 @@ public sealed class GameManagerV2 : MonoBehaviour
 
     private void SpawnPerson()
     {
-        int pIdx = GameManagerV2.Rng.Next(0, 49);
+        int pIdx = GameManagerV2.Rng.Next(0, 50);
         this.Person.GetComponent<SpriteRenderer>().sprite = this.peopleSprites[pIdx];
+        this.Person.AddComponent<PolygonCollider2D>();
+        this.Person.GetComponent<PolygonCollider2D>().isTrigger = true;
 
         string[] his =
         {
@@ -56,7 +58,7 @@ public sealed class GameManagerV2 : MonoBehaviour
     private void SpawnObject(float difference, int height)
     {
         int oIdx = GameManagerV2.Rng.Next(0, 26);
-        GameObject ob = Object.Instantiate(this.Item, new Vector3(13 - difference, height, 0),
+        GameObject ob = Object.Instantiate(this.Item, new Vector3(13, height, 0),
             Quaternion.Euler(0, 0, GameManagerV2.Rng.Next(0, 366)));
         ob.transform.localScale /= 2;
         ob.GetComponent<SpriteRenderer>().sprite = this.itemSprites[oIdx];
