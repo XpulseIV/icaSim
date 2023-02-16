@@ -28,7 +28,7 @@ public class sceneChanger : MonoBehaviour
     {
         string currentName = current.name;
 
-        if (currentName == null)
+        if (currentName == null && Input.GetKeyDown(KeyCode.Return))
         {
             // Scene1 has been removed
             currentName = "Replaced";
