@@ -19,7 +19,7 @@ public class sceneChanger : MonoBehaviour
     IEnumerator TimeChangedScene()
     {
         print(Time.time + " seconds");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(300f);
         print(Time.time + " seconds");
  
     }
@@ -28,7 +28,7 @@ public class sceneChanger : MonoBehaviour
     {
         string currentName = current.name;
 
-        if (currentName == null && Input.GetKeyDown(KeyCode.Return))
+        if (currentName == null)
         {
             // Scene1 has been removed
             currentName = "Replaced";
