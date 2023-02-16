@@ -11,11 +11,14 @@ public sealed class ScanItems : MonoBehaviour
 {
     public PolygonCollider2D Collider;
 
+    public clickpersondialouge hm;
+    
     public TextMeshProUGUI Price;
     public TextMeshProUGUI Items;
     public List<Collider2D> collisions;
     public List<Collider2D> itemList;
     public GameObject kassamedkassacanvas;
+    public GameObject kassamedkassacanvas2;
     public List<Sprite> forbiddenItems;
     public List<int> hmmm;
 
@@ -46,8 +49,9 @@ public sealed class ScanItems : MonoBehaviour
 
     public void OnScan()
     {
-        int actualItems = GameObject.FindGameObjectsWithTag("Object").Length;
+        this.kassamedkassacanvas2.SetActive(false);
 
+        int actualItems = GameObject.FindGameObjectsWithTag("Object").Length;
         if (actualItems != this.itemList.Count)
         {
             this.kassamedkassacanvas.SetActive(false);
@@ -62,65 +66,38 @@ public sealed class ScanItems : MonoBehaviour
                     {
                         Object.Destroy(someExtrasHuh[i]);
                     }
+
+                    this.kassamedkassacanvas.SetActive(true);
+                    this.kassamedkassacanvas2.SetActive(true);
                 }, static () => { }, false, "Ok");
         }
         else
         {
+            this.kassamedkassacanvas2.SetActive(false);
+
             using RNGCryptoServiceProvider rng = new();
             byte[] bytes = new byte[1];
             rng.GetBytes(bytes);
             int randomNumber = (bytes[0] % 100) + 1;
             bool characterAffordsItems = randomNumber <= 65;
 
-            bool demandId = this.itemList.Any(i => i.gameObject.GetComponent<SpriteRenderer>().sprite == this.forbiddenItems.Any());
+            bool demandId = this.itemList.Any(i =>
+                i.gameObject.GetComponent<SpriteRenderer>().sprite == this.forbiddenItems.Any());
+            this.hmmm = Enumerable.Range(10, Convert.ToInt32(this.Price.text) - 10).Where(x => (x % 10) == 0).ToList();
+            int itemPrice =
+                Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count));
+            if (this.Price.text != itemPrice.ToString())
+            {
+                this.hm.Clickable = true;
+            }
 
-            hmmm = Enumerable.Range(10, Convert.ToInt32(this.Price.text) - 10).Where(x => (x % 10) == 0).ToList();
-            this.SpawnMoney(Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count)));
-            /*if (demandId)
+            Debug.Log(itemPrice);
+            this.SpawnMoney(itemPrice);
+
+            if (demandId)
             {
                 
             }
-
-            switch (characterAffordsItems)
-            {
-                case true:
-                    
-                    break;
-                case false:
-                    QuestionDialogUI.Instance.ShowQuestion("-you don't have enough money", () =>
-                    {
-                        this.kassamedkassacanvas.SetActive(false);
-                        switch (new System.Random().Next(0, 2))
-                        {
-                            case 0:
-                                QuestionDialogUI.Instance.ShowQuestion("-Please let me buy this", () =>
-                                {
-                                    this.kassamedkassacanvas.SetActive(true);
-
-                                    GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
-                                    for (int i = actualItems; i < someExtrasHuh.Length; i++)
-                                    {
-                                        Object.Destroy(someExtrasHuh[i]);
-                                    }
-                                }, () => { }, true, "No");
-                                break;
-                            case 1:
-                                QuestionDialogUI.Instance.ShowQuestion("-Please this is all i got, I need to feed my family",
-                                    () =>
-                                    {
-                                        this.kassamedkassacanvas.SetActive(true);
-
-                                        GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
-                                        for (int i = actualItems; i < someExtrasHuh.Length; i++)
-                                        {
-                                            Object.Destroy(someExtrasHuh[i]);
-                                        }
-                                    }, () => { }, true, "No");
-                                break;
-                        }
-                    }, () => { });
-                    break;
-            }*/
         }
     }
 
