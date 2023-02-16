@@ -1,20 +1,20 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-public class ScanItems : MonoBehaviour
+public sealed class ScanItems : MonoBehaviour
 {
     public PolygonCollider2D Collider;
+
     public TextMeshProUGUI Price;
     public TextMeshProUGUI Items;
     public List<Collider2D> collisions;
+    public List<Collider2D> itemList;
     public GameObject kassamedkassacanvas;
 
     public GameObject money50;
@@ -22,13 +22,12 @@ public class ScanItems : MonoBehaviour
     public GameObject money10;
 
     // Start is called before the first frame update
-    void Start() { }
 
-    void spawnMoney(int value)
+    private void SpawnMoney(int value)
     {
         int[] denominations = { 50, 20, 10 };
         GameObject[] prefabs = { this.money50, this.money20, this.money10 };
-        Vector3 spawnPosition = new(Random.Range(-5f, 5f), 0.5f, Random.Range(-5f, 5f));
+        Vector3 spawnPosition = new(Random.Range(-5f, 5f), 0.5f, 0);
 
         for (int i = 0; i < denominations.Length; i++)
         {
@@ -62,8 +61,7 @@ public class ScanItems : MonoBehaviour
                     {
                         Object.Destroy(someExtrasHuh[i]);
                     }
-                },
-                () => { }, false, "Ok");
+                }, static () => { }, false, "Ok");
         }
         else
         {
@@ -76,7 +74,7 @@ public class ScanItems : MonoBehaviour
             switch (characterAffordsItems)
             {
                 case true:
-                    this.spawnMoney(Convert.ToInt32(this.Price.text));
+                    this.SpawnMoney(Convert.ToInt32(this.Price.text));
                     break;
                 case false:
                     break;
@@ -87,12 +85,18 @@ public class ScanItems : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        this.Price.text = this.collisions.Sum(collision => collision.gameObject.GetComponent<ItemP>().price).ToString();
-        this.Items.text = this.Collider.OverlapCollider(new ContactFilter2D().NoFilter(), this.collisions).ToString();
+        this.Collider.OverlapCollider(new ContactFilter2D().NoFilter(), this.collisions).ToString();
+
+        this.itemList = this.collisions.Where(static ob => ob.gameObject.CompareTag("Object")).ToList();
+
+        int collectivePrice = this.itemList.Sum(static collision => collision.gameObject.GetComponent<ItemP>().price);
+        int itemNumber = this.itemList.Count;
+        this.Price.text = collectivePrice.ToString();
+        this.Items.text = itemNumber.ToString();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.spawnMoney(new System.Random().Next(10, 171));
+            this.SpawnMoney(new System.Random().Next(10, 171));
         }
     }
 }
