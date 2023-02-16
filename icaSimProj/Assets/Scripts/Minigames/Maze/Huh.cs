@@ -87,14 +87,6 @@ public sealed class Huh : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            this.AI.destination = this.goal.position;
-            this.AI.SearchPath();
-            this.AI.canMove = true;
-            this.moveP = false;
-        }
-
         if (this.AI.reachedDestination)
         {
             this.AI.canMove = false;
