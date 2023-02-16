@@ -11,5 +11,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 950b2b74fe831a846993623ad846f6fe
+  - enabled: 1
+    path: Assets/Scenes/Toa game.unity
+    guid: be8e3a703f8e40046b4a2561e167f761
+  - enabled: 1
+    path: Assets/Scenes/Labyrinth.unity
+    guid: 9f0731b71ea69ea4c96ae88178c9fc55
+  - enabled: 1
+    path: Assets/Scenes/ID kort.unity
+    guid: 4c69a94b5be154b45976049d544654a0
+  - enabled: 1
+    path: "Assets/Scenes/f\xF6nster game.unity"
+    guid: d0c77680418ea2d449e4fa16c4fe9118
+  - enabled: 1
+    path: "Assets/Scenes/bl\xE5s maskot game.unity"
+    guid: 1919b54fb2cf9434ca922a6fb8e9e3a6
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 47407ee76d1aa1848921b150ba0c136e, type: 2}
