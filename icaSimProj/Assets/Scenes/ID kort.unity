@@ -619,54 +619,7 @@ MonoBehaviour:
   total_numbers_in_list: 1
   TextBox: {fileID: 1982751679}
   Thenames: 
-  SpriteList:
-  - {fileID: 21300000, guid: 26c48590a9d58ff48a31b3dd1da8a4bb, type: 3}
-  - {fileID: 21300000, guid: cc19e627dbfa23a468d3754c2ce93047, type: 3}
-  - {fileID: 21300000, guid: da370a624a216c4488985353e1a3b9da, type: 3}
-  - {fileID: 21300000, guid: 647c9b6a106cbbd4a9c33da20c966e7c, type: 3}
-  - {fileID: 21300000, guid: 076bbe4a86a8d4b4f9597fe2aedf44cd, type: 3}
-  - {fileID: 21300000, guid: e86ddbabd6156cf43bcc008232ab28e2, type: 3}
-  - {fileID: 21300000, guid: 23a7001a41b15df4dbe5478da92aebf3, type: 3}
-  - {fileID: 21300000, guid: 4409797f14b731a469c54d6a0acfe1f1, type: 3}
-  - {fileID: 21300000, guid: d30f82d798088de4499089c643ab581e, type: 3}
-  - {fileID: 21300000, guid: b2922ac2aa106514e87420ee40105cfb, type: 3}
-  - {fileID: 21300000, guid: b010ca22bafd53a4897dd53c294c3433, type: 3}
-  - {fileID: 21300000, guid: 8e62305d9d1be8a439e8840e5b3a7eb5, type: 3}
-  - {fileID: 21300000, guid: 08d7115cc1ae1974a8832a1ad2a9c8f2, type: 3}
-  - {fileID: 21300000, guid: 34627a27aaa710941b1615c34b5e092a, type: 3}
-  - {fileID: 21300000, guid: bbe6809340eb8f64dad3c4916809abeb, type: 3}
-  - {fileID: 21300000, guid: 53e600f0fb2eb3647baf2facd5ee1d48, type: 3}
-  - {fileID: 21300000, guid: 66a55a3965af04b4487287b6b2aaa229, type: 3}
-  - {fileID: 21300000, guid: 3ee0e73984761fb4ab9e37b66a547334, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 9dd661cea5a4e2342a3a141ae5e95962, type: 3}
-  - {fileID: 21300000, guid: 9dad9a062a4644046ba4a266e0967de6, type: 3}
-  - {fileID: 21300000, guid: 49b47d25eebf4264f8d9e43db9043b94, type: 3}
-  - {fileID: 21300000, guid: eb46f0ddd9d941047b773d152c07b353, type: 3}
-  - {fileID: 21300000, guid: d2bb2280868c3384f902a53f51f18a1c, type: 3}
-  - {fileID: 21300000, guid: 39e1106cf9b3dc14e9f47b06b3e25f9d, type: 3}
-  - {fileID: 21300000, guid: 7d407df6b4ef9c44ab7e69113e35c13f, type: 3}
-  - {fileID: 21300000, guid: 6753038b16da9b24691a8d2ef7ad8aa5, type: 3}
-  - {fileID: 21300000, guid: 351cbb6109d25194c8ce36e5745c4a9c, type: 3}
-  - {fileID: 21300000, guid: 04b74b94d8c8a1c4a9c3d2384b253341, type: 3}
-  - {fileID: 21300000, guid: d7418c7efc1b110439be92f14ecce0c2, type: 3}
-  - {fileID: 21300000, guid: 1909aee98c0e6aa4dbcc1fca371702eb, type: 3}
-  - {fileID: 21300000, guid: 9dc6fa6c39e13e64aad88bca3a6d1afa, type: 3}
-  - {fileID: 21300000, guid: 7715e5a3002af614bae80ec4643ae230, type: 3}
-  - {fileID: 21300000, guid: d5da5a069e09e9a44aafb94f4a06b479, type: 3}
-  - {fileID: 21300000, guid: 55b210b3b6382a54c9e10f9e2c85082d, type: 3}
-  - {fileID: 21300000, guid: 54e8eb0621bce7e4caf5241191ebd974, type: 3}
-  - {fileID: 21300000, guid: e7bb9f5dc6d9abf419202deb169926c6, type: 3}
-  - {fileID: 21300000, guid: 238df68b0a976ad4b830a9beb5f8885e, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  SpriteList: []
   Character: {fileID: 891754230}
   character: 0
 --- !u!4 &1308510913
