@@ -8,6 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+<<<<<<< HEAD
   - enabled: 0
     path: Assets/Scenes/ChangingScreen.unity
     guid: 656a94767273c7e4fabd438a011bd24c
@@ -15,6 +16,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 950b2b74fe831a846993623ad846f6fe
   - enabled: 0
+=======
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 950b2b74fe831a846993623ad846f6fe
+  - enabled: 1
+    path: Assets/Scenes/ChangingScreen.unity
+    guid: 656a94767273c7e4fabd438a011bd24c
+  - enabled: 1
+>>>>>>> ef95e56e6771d22eb9e32d9c119175a06ff661ac
     path: Assets/Scenes/Toa game.unity
     guid: be8e3a703f8e40046b4a2561e167f761
   - enabled: 0

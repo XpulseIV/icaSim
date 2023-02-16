@@ -17,8 +17,8 @@ public sealed class stigmanager : MonoBehaviour
     public bool moveStig;
     public bool stretchStig;
 
-    public Vector3 moveStartPos = new(11.8f, -50, 0);
-    public Vector3 moveEndPos = new(11.8f, 1, 0);
+    public Vector3 moveStartPos = new(8.14f, -50, 0);
+    public Vector3 moveEndPos = new(8.14f, 1, 0);
     public Vector3 stretchStartPos = new(1, 10, 1);
     public Vector3 stretchEndPos = new(1, 1, 1);
 
@@ -148,7 +148,7 @@ public sealed class stigmanager : MonoBehaviour
 
             if (this.stig.transform.position.y >= 0.9)
             {
-                this.stig.transform.position = new Vector3(11.8f, 1, 0);
+                this.stig.transform.position = new Vector3(8.14f, 1, 0);
                 this.moveStig = false;
                 this.Stretch();
             }
