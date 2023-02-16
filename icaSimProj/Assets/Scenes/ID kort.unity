@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   random_numbers_holder: {fileID: 1574868983}
-  total_numbers_in_list: 2
+  total_numbers_in_list: 1
   TextBox: {fileID: 1982751679}
   Thenames: 
   SpriteList:
@@ -638,9 +638,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 53e600f0fb2eb3647baf2facd5ee1d48, type: 3}
   - {fileID: 21300000, guid: 66a55a3965af04b4487287b6b2aaa229, type: 3}
   - {fileID: 21300000, guid: 3ee0e73984761fb4ab9e37b66a547334, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 21300000, guid: 9dd661cea5a4e2342a3a141ae5e95962, type: 3}
   - {fileID: 21300000, guid: 9dad9a062a4644046ba4a266e0967de6, type: 3}
   - {fileID: 21300000, guid: 49b47d25eebf4264f8d9e43db9043b94, type: 3}
@@ -660,13 +657,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 54e8eb0621bce7e4caf5241191ebd974, type: 3}
   - {fileID: 21300000, guid: e7bb9f5dc6d9abf419202deb169926c6, type: 3}
   - {fileID: 21300000, guid: 238df68b0a976ad4b830a9beb5f8885e, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Character: {fileID: 891754230}
   character: 0
 --- !u!4 &1308510913
@@ -1134,7 +1124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ae190e5e1907dca4bbaaaf8d5e7f6a9b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb80b83895068994e88b7602b64bd28c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
