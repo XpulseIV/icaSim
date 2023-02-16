@@ -45,13 +45,14 @@ public class sceneChanger : MonoBehaviour
         sceneChanger.TimeChanged += ChangeScene;
     }
 
-    void ChangeScene()
+    void ChangeScene(/*int index*/)
     {
         Debug.Log("Changing to Scene2");
         SceneManager.LoadScene("Scene2");
 
         Scene scene = SceneManager.GetSceneByName("Scene2");
         SceneManager.SetActiveScene(scene);
+        //SceneManager.LoadScene(index);
     }
 
     void OnDisable()
