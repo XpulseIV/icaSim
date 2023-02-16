@@ -30,7 +30,7 @@ public sealed class GameManagerV2 : MonoBehaviour
 
     private void SpawnPerson()
     {
-        int pIdx = GameManagerV2.Rng.Next(0, 49);
+        int pIdx = GameManagerV2.Rng.Next(0, 50);
         this.Person.GetComponent<SpriteRenderer>().sprite = this.peopleSprites[pIdx];
 
         string[] his =
