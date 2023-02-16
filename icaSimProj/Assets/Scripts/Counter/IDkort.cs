@@ -27,34 +27,41 @@ public class IDkort : MonoBehaviour
         }
     }
 
-    public Image randomImage;
-    public Sprite s0;
-    public Sprite s1;
-    public Sprite s2;
-    public Sprite s3;
-    public Sprite[] images;
-
-    public void random_image_generator()
-    {
-        images = new Sprite[4];
-        images[0] = s0;
-        images[1] = s1;
-        images[2] = s2;
-        images[3] = s3;
-    }
-
-    void changeImage()
-    {
-        int num = UnityEngine.Random.Range(0, images.Length);
-        randomImage.sprite = images[num];
-    }
-
     public TextMeshProUGUI TextBox;
     public string Thenames;
     public void PickRandomFromList()
     {
-        string[] names = new string[] { "Bertil", "Bob", "Jessica","anna","jack"};
+        string[] names = new string[] { "Bertil", "Bob", "Jessica","Anna","Jack","Coby","Leo","Anton","Maria","Noah","Thor","Klara","Malte","Isac","Jacob", "Michael","Sam","Theo","Max","Hannes","Erik"};
         string randomName = names[Random.Range(0, names.Length)];
         TextBox.GetComponent<TextMeshProUGUI>().text = "" + randomName;
     }
+
+    public List<Sprite> SpriteList;
+    public GameObject Character;
+    public int character = 0;
+    private System.Random rng;
+
+    private void Start()
+    {
+        rng = new();
+    }
+
+    public void characters_change()
+    {
+        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+     
+        
+
+            this.Character.GetComponent<SpriteRenderer>().sprite = this.SpriteList[rng.Next(0, SpriteList.Count)];
+            character++;
+
+            if (character >= SpriteList.Count)
+            {
+                character = 0;
+            }
+        
+
+    }
 }   
+    
