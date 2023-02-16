@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 884465183}
   - component: {fileID: 884465186}
   - component: {fileID: 884465187}
+  - component: {fileID: 884465188}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1089,6 +1090,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &884465188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884465182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be5a0b2e6159544ab18c3508f076218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1218131696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1531,7 @@ SpriteRenderer:
   m_SortingLayerID: -1088686499
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 19e3394d72e15c44eab1f089badfb85b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d937fd09063a7943a7be552c30f84ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1557,7 +1570,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.512652, y: -3.0084343}
+  m_Offset: {x: -4.582847, y: -3.7594566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1568,7 +1581,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.2917585, y: 3.0770617}
+  m_Size: {x: 5.106021, y: 1.575017}
   m_EdgeRadius: 0
 --- !u!1 &1405362849
 GameObject:
@@ -1820,7 +1833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607193121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.3017, y: 0.9377, z: 0}
+  m_LocalPosition: {x: 8.14, y: 0.6, z: 0}
   m_LocalScale: {x: 1.1946782, y: 0.9878, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1860,8 +1873,8 @@ MonoBehaviour:
   item: 0
   moveStig: 0
   stretchStig: 0
-  moveStartPos: {x: 11.8, y: -50, z: 0}
-  moveEndPos: {x: 11.8, y: 1, z: 0}
+  moveStartPos: {x: 8.14, y: -50, z: 0}
+  moveEndPos: {x: 8.14, y: 1, z: 0}
   stretchStartPos: {x: 1, y: 10, z: 1}
   stretchEndPos: {x: 1, y: 1, z: 1}
   moveSpeed: 5
