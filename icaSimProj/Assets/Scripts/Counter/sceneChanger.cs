@@ -50,8 +50,8 @@ public class sceneChanger : MonoBehaviour
         Debug.Log("Changing to Scene2");
         SceneManager.LoadScene("Scene2");
 
-        Scene Tutorial = SceneManager.GetSceneByName("Scene2");
-        SceneManager.SetActiveScene(Tutorial);
+        Scene scene = SceneManager.GetSceneByName("Scene2");
+        SceneManager.SetActiveScene(scene);
     }
 
     void OnDisable()

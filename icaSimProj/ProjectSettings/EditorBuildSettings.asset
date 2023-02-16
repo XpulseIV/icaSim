@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 950b2b74fe831a846993623ad846f6fe
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 47407ee76d1aa1848921b150ba0c136e, type: 2}
