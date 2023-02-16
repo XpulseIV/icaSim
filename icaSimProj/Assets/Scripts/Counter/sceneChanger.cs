@@ -21,16 +21,14 @@ public class sceneChanger : MonoBehaviour
         print(Time.time + " seconds");
         yield return new WaitForSeconds(1.5f);
         print(Time.time + " seconds");
-
-        // call the event
-        TimeChanged();
+ 
     }
 
     private void ChangedActiveScene(Scene current, Scene next)
     {
         string currentName = current.name;
 
-        if (currentName == null)
+        if (currentName == null && Input.GetKeyDown(KeyCode.Return))
         {
             // Scene1 has been removed
             currentName = "Replaced";
@@ -42,21 +40,20 @@ public class sceneChanger : MonoBehaviour
     void OnEnable()
     {
         Debug.Log("OnEnable");
-        sceneChanger.TimeChanged += ChangeScene;
     }
 
-    void ChangeScene()
+    void ChangeScene(int index)
     {
         Debug.Log("Changing to Scene2");
         SceneManager.LoadScene("Scene2");
 
         Scene scene = SceneManager.GetSceneByName("Scene2");
         SceneManager.SetActiveScene(scene);
+        SceneManager.LoadScene(index);
     }
 
     void OnDisable()
     {
-        sceneChanger.TimeChanged -= ChangeScene;
         Debug.Log("OnDisable happened for Scene1");
     }
 }
