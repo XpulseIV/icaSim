@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 295408096}
   - component: {fileID: 295408095}
   - component: {fileID: 295408098}
+  - component: {fileID: 295408099}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -480,6 +481,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &295408099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295408094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be5a0b2e6159544ab18c3508f076218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NumLevel: 7
 --- !u!1 &307568475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2117,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1f0125a69b1fa744b929fcc1a545b174, type: 3}
   - {fileID: 21300000, guid: 4854224dc4cf3b149b6a1f0b891a1ebd, type: 3}
   itemPrices: 640000003200000032000000320000000a000000140000001e000000140000005a0000003c000000960000001400000014000000140000000a000000140000001400000028000000500000003c0000006400000064000000aa0000003c0000001e00000014000000
-  p: {fileID: 1937341416}
+  p: {fileID: 6728761586112675971, guid: 0bd725f06d7345b40bff3bc28086fd47, type: 3}
+  kassamedkassacanvas2: {fileID: 1981386941}
 --- !u!4 &1499018390
 Transform:
   m_ObjectHideFlags: 0
@@ -2759,6 +2774,7 @@ GameObject:
   - component: {fileID: 1948114002}
   - component: {fileID: 1948114001}
   - component: {fileID: 1948114000}
+  - component: {fileID: 1948114005}
   m_Layer: 0
   m_Name: kassautankassa
   m_TagString: Untagged
@@ -2821,7 +2837,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 55.26433
+  m_Mass: 72.40921
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -2934,6 +2950,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1948114005
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948113998}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -10.83, y: 3.8969483}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 10.24}
+    newSize: {x: 20.48, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 15.206103}
+  m_EdgeRadius: 0
 --- !u!1 &1981386941
 GameObject:
   m_ObjectHideFlags: 0

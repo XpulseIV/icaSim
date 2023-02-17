@@ -37,11 +37,8 @@ public sealed class ScanItems : MonoBehaviour
         this.hm.onClickPerson.AddListener(this.somethingsWrong);
     }
 
-    private void cannotBuyItems()
-    {
-        
-    }
-    
+    private void cannotBuyItems() { }
+
     private void somethingsWrong()
     {
         this.kassamedkassacanvas.SetActive(false);
@@ -64,6 +61,8 @@ public sealed class ScanItems : MonoBehaviour
                             {
                                 Object.Destroy(someExtrasHuh[i]);
                             }
+
+                            this.kassamedkassacanvas2.SetActive(true);
                         }, () => { }, true, "Yes");
                         break;
                     case 1:
@@ -77,6 +76,8 @@ public sealed class ScanItems : MonoBehaviour
                                 {
                                     Object.Destroy(someExtrasHuh[i]);
                                 }
+
+                                this.kassamedkassacanvas2.SetActive(true);
                             }, () => { }, true, "Yes");
                         break;
                 }
@@ -100,6 +101,8 @@ public sealed class ScanItems : MonoBehaviour
                             {
                                 Object.Destroy(someExtrasHuh[i]);
                             }
+
+                            this.kassamedkassacanvas2.SetActive(true);
                         }, () => { }, true, "Yes");
                         break;
                     case 1:
@@ -113,6 +116,8 @@ public sealed class ScanItems : MonoBehaviour
                                 {
                                     Object.Destroy(someExtrasHuh[i]);
                                 }
+
+                                this.kassamedkassacanvas2.SetActive(true);
                             }, () => { }, true, "Yes");
                         break;
                 }
@@ -159,7 +164,6 @@ public sealed class ScanItems : MonoBehaviour
                         Object.Destroy(someExtrasHuh[i]);
                     }
 
-                    this.kassamedkassacanvas.SetActive(true);
                     this.kassamedkassacanvas2.SetActive(true);
                 }, static () => { }, false, "Ok");
         }
@@ -171,13 +175,13 @@ public sealed class ScanItems : MonoBehaviour
             byte[] bytes = new byte[1];
             rng.GetBytes(bytes);
             int randomNumber = (bytes[0] % 100) + 1;
-            bool characterAffordsItems = randomNumber <= 65;
+            //bool characterAffordsItems = randomNumber <= 65;
 
             demandId = this.itemList.Any(i =>
                 i.gameObject.GetComponent<SpriteRenderer>().sprite == this.forbiddenItems.Any());
             this.hmmm = Enumerable.Range(10, Convert.ToInt32(this.Price.text) - 10).Where(x => (x % 10) == 0).ToList();
             int itemPrice =
-                Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count));
+                Convert.ToInt32(true ? this.Price.text : new System.Random().Next(0, hmmm.Count));
 
             this.SpawnMoney(itemPrice);
 

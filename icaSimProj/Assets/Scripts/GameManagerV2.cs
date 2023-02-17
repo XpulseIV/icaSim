@@ -18,6 +18,7 @@ public sealed class GameManagerV2 : MonoBehaviour
     public List<Sprite> itemSprites;
     public List<int> itemPrices;
     public GameObject p;
+    public GameObject kassamedkassacanvas2;
 
     // Start is called before the first frame update
     private void Start()
@@ -47,6 +48,7 @@ public sealed class GameManagerV2 : MonoBehaviour
                 Object.Destroy(s);
             }
 
+            kassamedkassacanvas2.SetActive(true);
             this.SpawnPerson();
         }, () => { }, false, "Bye");
     }
@@ -72,6 +74,7 @@ public sealed class GameManagerV2 : MonoBehaviour
         QuestionDialogUI.Instance.ShowQuestion(his[new System.Random().Next(0, 4)], () =>
         {
             this.kassamedkassa.SetActive(true);
+            this.kassamedkassacanvas2.SetActive(true);
 
             for (int i = 0; i < GameManagerV2.Rng.Next(1, 4); i++)
             {
