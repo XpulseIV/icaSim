@@ -88,6 +88,7 @@ public sealed class Huh : MonoBehaviour
     public static void ReachedDestination(bool success)
     {
         Debug.Log(success ? "You reached the maze without help" : "Suffer the consequences of failing a simple maze");
+        SceneManager.LoadScene(1);
     }
     public delegate void Change();
     public static event Change TimeChanged;
@@ -98,7 +99,7 @@ public sealed class Huh : MonoBehaviour
 
     public void ReturnButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
