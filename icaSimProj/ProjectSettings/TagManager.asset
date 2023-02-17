@@ -62,6 +62,9 @@ TagManager:
   - name: objects
     uniqueID: 3995966011
     locked: 0
+  - name: ID
+    uniqueID: 647251599
+    locked: 0
   - name: hand
     uniqueID: 4005889685
     locked: 0

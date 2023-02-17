@@ -1,67 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class IDkort : MonoBehaviour
 {
-    private List<int> random_number_list = new List<int>();
-    public TextMeshProUGUI random_numbers_holder;
-    public int total_numbers_in_list = 1;
-
-    public void random_number_generator()
-    {
-        random_number_list.Clear();
-        random_numbers_holder.text = "";
-
-        for (int i = 0; i < total_numbers_in_list; i++)
-        {
-            int rand = Random.Range(1, 99);
-            random_number_list.Add(rand);
-        }
-
-        foreach (var num in random_number_list)
-        {
-            random_numbers_holder.text += num.ToString() + " ";
-        }
-    }
-
-    public TextMeshProUGUI TextBox;
-    public string Thenames;
-    public void PickRandomFromList()
-    {
-        string[] names = new string[] { "Bertil", "Bob", "Jessica","Anna","Jack","Coby","Leo","Anton","Maria","Noah","Thor","Klara","Malte","Isac","Jacob", "Michael","Sam","Theo","Max","Hannes","Erik"};
-        string randomName = names[Random.Range(0, names.Length)];
-        TextBox.GetComponent<TextMeshProUGUI>().text = "" + randomName;
-    }
+    public TextMeshProUGUI NameText;
+    public TextMeshProUGUI AgeText;
 
     public List<Sprite> SpriteList;
     public GameObject Character;
-    public int character = 0;
-    private System.Random rng;
-
-    private void Start()
-    {
-        rng = new();
-    }
 
     public void characters_change()
     {
-        Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        string[] names =
+        {
+            "Bertil", "Bob", "Jessica", "Anna", "Jack", "Coby", "Leo", "Anton", "Maria", "Noah", "Thor",
+            "Klara", "Malte", "Isac", "Jacob", "Michael", "Sam", "Theo", "Max", "Hannes", "Erik"
+        };
+        string randomName = names[Random.Range(0, names.Length)];
+        this.NameText.text = randomName;
 
-     
-        
+        this.AgeText.text = Random.Range(12, 76).ToString();
 
-            this.Character.GetComponent<SpriteRenderer>().sprite = this.SpriteList[rng.Next(0, SpriteList.Count)];
-            character++;
-
-            if (character >= SpriteList.Count)
-            {
-                character = 0;
-            }
-        
-
+        this.Character.GetComponent<SpriteRenderer>().sprite = this.SpriteList[Random.Range(0, SpriteList.Count)];
     }
 }   
     

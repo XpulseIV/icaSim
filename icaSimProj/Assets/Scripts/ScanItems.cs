@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,7 @@ public sealed class ScanItems : MonoBehaviour
     public PolygonCollider2D Collider;
 
     public clickpersondialouge hm;
-    
+
     public TextMeshProUGUI Price;
     public TextMeshProUGUI Items;
     public List<Collider2D> collisions;
@@ -21,12 +22,103 @@ public sealed class ScanItems : MonoBehaviour
     public GameObject kassamedkassacanvas2;
     public List<Sprite> forbiddenItems;
     public List<int> hmmm;
+    public bool canAfford;
+    public bool demandId;
+    public GameSession session;
+
+    public bool isOldEnough;
 
     public GameObject money50;
     public GameObject money20;
     public GameObject money10;
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        this.hm.onClickPerson.AddListener(this.somethingsWrong);
+    }
+
+    private void cannotBuyItems()
+    {
+        
+    }
+    
+    private void somethingsWrong()
+    {
+        this.kassamedkassacanvas.SetActive(false);
+
+        if (!this.isOldEnough)
+        {
+            QuestionDialogUI.Instance.ShowQuestion("-you cant buy these items with this card", () =>
+            {
+                int actualItems = GameObject.FindGameObjectsWithTag("Object").Length;
+
+                switch (new System.Random().Next(0, 2))
+                {
+                    case 0:
+                        QuestionDialogUI.Instance.ShowQuestion("-”Please I beg you, let me buy these items", () =>
+                        {
+                            this.kassamedkassacanvas.SetActive(true);
+
+                            GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                            for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                            {
+                                Object.Destroy(someExtrasHuh[i]);
+                            }
+                        }, () => { }, true, "Yes");
+                        break;
+                    case 1:
+                        QuestionDialogUI.Instance.ShowQuestion("-Please this is all i got, I need to feed my family",
+                            () =>
+                            {
+                                this.kassamedkassacanvas.SetActive(true);
+
+                                GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                                for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                                {
+                                    Object.Destroy(someExtrasHuh[i]);
+                                }
+                            }, () => { }, true, "Yes");
+                        break;
+                }
+            }, () => { });
+        }
+        else
+        {
+            QuestionDialogUI.Instance.ShowQuestion("-you don't have enough money", () =>
+            {
+                int actualItems = GameObject.FindGameObjectsWithTag("Object").Length;
+
+                switch (new System.Random().Next(0, 2))
+                {
+                    case 0:
+                        QuestionDialogUI.Instance.ShowQuestion("-Please let me buy this", () =>
+                        {
+                            this.kassamedkassacanvas.SetActive(true);
+
+                            GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                            for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                            {
+                                Object.Destroy(someExtrasHuh[i]);
+                            }
+                        }, () => { }, true, "Yes");
+                        break;
+                    case 1:
+                        QuestionDialogUI.Instance.ShowQuestion("-Please this is all i got, I need to feed my family",
+                            () =>
+                            {
+                                this.kassamedkassacanvas.SetActive(true);
+
+                                GameObject[] someExtrasHuh = GameObject.FindGameObjectsWithTag("Object");
+                                for (int i = actualItems; i < someExtrasHuh.Length; i++)
+                                {
+                                    Object.Destroy(someExtrasHuh[i]);
+                                }
+                            }, () => { }, true, "Yes");
+                        break;
+                }
+            }, () => { });
+        }
+    }
 
     private void SpawnMoney(int value)
     {
@@ -41,7 +133,7 @@ public sealed class ScanItems : MonoBehaviour
 
             for (int j = 0; j < numNotes; j++)
             {
-                Object.Instantiate(prefabs[i], spawnPosition + new Vector3(0, 0, j * 0.1f), Quaternion.identity);
+                Object.Instantiate(prefabs[i], spawnPosition + new Vector3(0, j + 0.2f, 0), Quaternion.identity);
             }
         }
     }
@@ -81,22 +173,31 @@ public sealed class ScanItems : MonoBehaviour
             int randomNumber = (bytes[0] % 100) + 1;
             bool characterAffordsItems = randomNumber <= 65;
 
-            bool demandId = this.itemList.Any(i =>
+            demandId = this.itemList.Any(i =>
                 i.gameObject.GetComponent<SpriteRenderer>().sprite == this.forbiddenItems.Any());
             this.hmmm = Enumerable.Range(10, Convert.ToInt32(this.Price.text) - 10).Where(x => (x % 10) == 0).ToList();
             int itemPrice =
                 Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count));
-            if (this.Price.text != itemPrice.ToString())
+
+            this.SpawnMoney(itemPrice);
+            
+            if (this.demandId)
             {
-                this.hm.Clickable = true;
+                bytes = new byte[1];
+                rng.GetBytes(bytes);
+                randomNumber = (bytes[0] % 100) + 1;
+                this.isOldEnough = randomNumber <= 63;
+
+                if (this.isOldEnough)
+                {
+                    this.hm.Clickable = false;
+                }
             }
 
-            Debug.Log(itemPrice);
-            this.SpawnMoney(itemPrice);
-
-            if (demandId)
+            if (this.Price.text != itemPrice.ToString())
             {
-                
+                this.canAfford = true;
+                this.hm.Clickable = true;
             }
         }
     }
@@ -113,9 +214,9 @@ public sealed class ScanItems : MonoBehaviour
         this.Price.text = collectivePrice.ToString();
         this.Items.text = itemNumber.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameObject.FindGameObjectsWithTag("Money").Length == 0)
         {
-            this.SpawnMoney(2023);
+            
         }
     }
 }
