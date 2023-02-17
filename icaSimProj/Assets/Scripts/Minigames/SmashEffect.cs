@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SmashEffect : MonoBehaviour
 {
+
     public GameObject Smasheffect;
     public AudioSource aas;
+    public GameObject
 
     void OnMouseDown()
     {
