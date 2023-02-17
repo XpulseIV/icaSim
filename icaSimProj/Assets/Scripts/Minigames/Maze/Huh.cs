@@ -78,11 +78,72 @@ public sealed class Huh : MonoBehaviour
             this.goal.position = new Vector3(Random.Range(0, this.w), Random.Range(0, this.h));
         while (Vector3.Distance(this.player.position, this.goal.position) < (this.w + this.h) / 4);
         this.cam.m_Lens.OrthographicSize = (Mathf.Pow(this.w / 3 + this.h / 2, 0.7f) + 1) / 1.5f;
+
+        SceneManager.activeSceneChanged += ChangedActiveScene;
+
+        // wait 1.5 seconds before change to Scene2
+        StartCoroutine(TimeChangedScene());
     }
 
     public static void ReachedDestination(bool success)
     {
         Debug.Log(success ? "You reached the maze without help" : "Suffer the consequences of failing a simple maze");
+        SceneManager.LoadScene(1);
+    }
+    public delegate void Change();
+    public static event Change TimeChanged;
+    public int NumLevel;
+
+
+
+
+    public void ReturnButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+
+
+
+    IEnumerator TimeChangedScene()
+    {
+        print(Time.time + " seconds");
+        yield return new WaitForSeconds(40f);
+        print(Time.time + " seconds");
+        SceneManager.LoadScene(Random.Range(1, NumLevel));
+
+    }
+
+    private void ChangedActiveScene(Scene current, Scene next)
+    {
+        string currentName = current.name;
+
+        if (currentName == null)
+        {
+            // Scene1 has been removed
+            currentName = "Replaced";
+        }
+
+        Debug.Log("Scenes: " + currentName + ", " + next.name);
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("OnEnable");
+    }
+
+    void ChangeScene(int index)
+    {
+        Debug.Log("Changing to Scene2");
+        SceneManager.LoadScene("Scene2");
+        Scene scene = SceneManager.GetSceneByName("Scene2");
+        SceneManager.SetActiveScene(scene);
+        SceneManager.LoadScene(index);
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable happened for Scene1");
     }
 
     void Update()

@@ -180,7 +180,7 @@ public sealed class ScanItems : MonoBehaviour
                 Convert.ToInt32(characterAffordsItems ? this.Price.text : new System.Random().Next(0, hmmm.Count));
 
             this.SpawnMoney(itemPrice);
-            
+
             if (this.demandId)
             {
                 bytes = new byte[1];
@@ -213,10 +213,5 @@ public sealed class ScanItems : MonoBehaviour
         int itemNumber = this.itemList.Count;
         this.Price.text = collectivePrice.ToString();
         this.Items.text = itemNumber.ToString();
-
-        if (GameObject.FindGameObjectsWithTag("Money").Length == 0)
-        {
-            
-        }
     }
 }
