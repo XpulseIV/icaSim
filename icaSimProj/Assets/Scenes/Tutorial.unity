@@ -857,7 +857,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e3681e5c0f9de594b8790405e05cd939, type: 3}
   - {fileID: 21300000, guid: 87963ceacf9500443af0e5a16a280cc8, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: 084e650dd88149d45bdabc8c464835a8, type: 3}
+  - {fileID: 21300000, guid: 3f8644f497792144592ae832b3ef7e8c, type: 3}
   Item: {fileID: 840173157}
   item: 0
 --- !u!212 &664350302
@@ -1885,7 +1885,7 @@ SpriteRenderer:
   m_SortingLayerID: -1088686499
   m_SortingLayer: 5
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 097a8fe5d1bfc3d48a94580ef649d4d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 19e3394d72e15c44eab1f089badfb85b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2177,6 +2177,8 @@ MonoBehaviour:
   collisions: []
   itemList: []
   kassamedkassacanvas: {fileID: 245689145}
+  forbiddenItems: []
+  hmmm: 
   money50: {fileID: 811107645920490265, guid: 353092dc58f1b0d46ac1cf6208f7e187, type: 3}
   money20: {fileID: 5411758801727203841, guid: 04277f5e698344141aa3cc6ddbd7da83, type: 3}
   money10: {fileID: 4392161653963273813, guid: 2d79aac50b86cc044ab9c6dac4270f87, type: 3}
@@ -2671,6 +2673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870078298}
   - component: {fileID: 1870078297}
+  - component: {fileID: 1870078299}
   m_Layer: 0
   m_Name: kassamedkassautankassamedbakgrund
   m_TagString: Untagged
@@ -2745,6 +2748,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1870078299
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870078296}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bee52808545e34e44a6da4e2adc58ab3, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1910612693
 GameObject:
   m_ObjectHideFlags: 0

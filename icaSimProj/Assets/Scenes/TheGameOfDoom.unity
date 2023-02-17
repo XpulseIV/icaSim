@@ -154,11 +154,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 83740783}
+  hm: {fileID: 1937341419}
   Price: {fileID: 2137540565}
   Items: {fileID: 255500700}
   collisions: []
   itemList: []
   kassamedkassacanvas: {fileID: 1056356571}
+  kassamedkassacanvas2: {fileID: 1981386941}
   forbiddenItems: []
   hmmm: 
   money50: {fileID: 811107645920490265, guid: 353092dc58f1b0d46ac1cf6208f7e187, type: 3}
@@ -1932,6 +1934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87883f4331441c246896e2d59079c79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clickable: 0
 --- !u!1 &1948113998
 GameObject:
   m_ObjectHideFlags: 0
