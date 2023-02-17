@@ -7,6 +7,7 @@ public class sceneChanger : MonoBehaviour
 {
     public delegate void Change();
     public static event Change TimeChanged;
+    public int NumLevel;
 
     public void Start()
     {
@@ -19,8 +20,9 @@ public class sceneChanger : MonoBehaviour
     IEnumerator TimeChangedScene()
     {
         print(Time.time + " seconds");
-        yield return new WaitForSeconds(300f);
+        yield return new WaitForSeconds(1f);
         print(Time.time + " seconds");
+        SceneManager.LoadScene(Random.Range(1, NumLevel));
  
     }
 
@@ -46,7 +48,6 @@ public class sceneChanger : MonoBehaviour
     {
         Debug.Log("Changing to Scene2");
         SceneManager.LoadScene("Scene2");
-
         Scene scene = SceneManager.GetSceneByName("Scene2");
         SceneManager.SetActiveScene(scene);
         SceneManager.LoadScene(index);
