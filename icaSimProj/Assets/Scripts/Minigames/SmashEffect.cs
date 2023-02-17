@@ -16,10 +16,7 @@ public class SmashEffect : MonoBehaviour
 
         Destroy(this.gameObject);
         Object.Instantiate(this.Smasheffect, transform.position, Quaternion.identity);
-        if() 
-        {
-            this.Finishedtask.SetActive(true);
-        }
+       
     }
     
     
