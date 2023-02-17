@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 664350299}
   - component: {fileID: 664350298}
   - component: {fileID: 664350297}
+  - component: {fileID: 664350303}
   m_Layer: 0
   m_Name: Item (2)
   m_TagString: Untagged
@@ -912,6 +913,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &664350303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664350295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437245f30488448e9bcbd02c47ab5fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 20
 --- !u!1 &840173157
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +941,7 @@ GameObject:
   - component: {fileID: 840173161}
   - component: {fileID: 840173160}
   - component: {fileID: 840173159}
+  - component: {fileID: 840173165}
   m_Layer: 0
   m_Name: Item (1)
   m_TagString: Untagged
@@ -1102,6 +1117,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &840173165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840173157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437245f30488448e9bcbd02c47ab5fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 100
 --- !u!1 &841097984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,10 +1330,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 884465182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be5a0b2e6159544ab18c3508f076218, type: 3}
+  m_Script: {fileID: 11500000, guid: 94d9e626e282b624c84d15293e577fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumLevel: 7
+  NumLevel: 2
 --- !u!1 &898927441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1637,7 @@ GameObject:
   - component: {fileID: 1334761624}
   - component: {fileID: 1334761623}
   - component: {fileID: 1334761622}
+  - component: {fileID: 1334761629}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -1784,6 +1813,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334761629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334761621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437245f30488448e9bcbd02c47ab5fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 50
 --- !u!1 &1400229554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2053,7 @@ GameObject:
   - component: {fileID: 1607193124}
   - component: {fileID: 1607193125}
   - component: {fileID: 1607193126}
+  - component: {fileID: 1607193127}
   m_Layer: 0
   m_Name: ica stig
   m_TagString: Untagged
@@ -2142,6 +2185,22 @@ MonoBehaviour:
   SpriteList: []
   Character: {fileID: 1607193121}
   character: 0
+--- !u!114 &1607193127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607193121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87883f4331441c246896e2d59079c79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clickable: 0
+  onClickPerson:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1631057232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collider: {fileID: 1631057234}
-  hm: {fileID: 0}
+  hm: {fileID: 1607193127}
   Price: {fileID: 1910612696}
   Items: {fileID: 1118443921}
   collisions: []

@@ -115,7 +115,7 @@ public sealed class ScanItems : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.SpawnMoney(2023);
+            this.SpawnMoney(0);
         }
     }
 }
