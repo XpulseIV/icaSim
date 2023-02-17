@@ -30,7 +30,7 @@ public class tutorialScene : MonoBehaviour
     IEnumerator TimeChangedScene()
     {
         print(Time.time + " seconds");
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(60f);
         print(Time.time + " seconds");
         SceneManager.LoadScene(Random.Range(1, NumLevel));
 
