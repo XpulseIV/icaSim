@@ -33,7 +33,7 @@ public class sceneChanger : MonoBehaviour
         print(Time.time + " seconds");
         yield return new WaitForSeconds(300f);
         print(Time.time + " seconds");
-        SceneManager.LoadScene(Random.Range(1, NumLevel));
+        SceneManager.LoadScene(Random.Range(2, NumLevel));
  
     }
 
