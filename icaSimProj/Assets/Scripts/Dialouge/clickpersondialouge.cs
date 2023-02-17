@@ -26,7 +26,7 @@ public class clickpersondialouge : MonoBehaviour
             GetComponent<Renderer>().material.color
                 = Color.red;
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 this.onClickPerson.Invoke();
             }
