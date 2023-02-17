@@ -11,6 +11,9 @@ public class MaskotPump : MonoBehaviour
 
     [Header("Custom Event")]
     public UnityEvent myEvents;
+    public int maxPumps = 6;
+    int numPumps = 0;
+    public GameObject canvas;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +24,12 @@ public class MaskotPump : MonoBehaviour
         else
         {
             print("MaskotPump Activated. Triggering" + myEvents);
-            myEvents.Invoke();  
+            myEvents.Invoke();
+            numPumps++;
+            if ( numPumps >= maxPumps)
+            {
+                canvas.SetActive(true);
+            }
         }
     }
    
