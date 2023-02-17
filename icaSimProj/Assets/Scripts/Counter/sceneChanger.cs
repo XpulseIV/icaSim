@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class sceneChanger : MonoBehaviour
 {
     public delegate void Change();
     public static event Change TimeChanged;
     public int NumLevel;
+
+
+  
+
+    public void ReturnButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+    
+  
 
     public void Start()
     {
@@ -20,7 +31,7 @@ public class sceneChanger : MonoBehaviour
     IEnumerator TimeChangedScene()
     {
         print(Time.time + " seconds");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         print(Time.time + " seconds");
         SceneManager.LoadScene(Random.Range(1, NumLevel));
  
@@ -50,6 +61,10 @@ public class sceneChanger : MonoBehaviour
         SceneManager.LoadScene("Scene2");
         Scene scene = SceneManager.GetSceneByName("Scene2");
         SceneManager.SetActiveScene(scene);
+        if (index == 0)
+        {
+            return;
+        }
         SceneManager.LoadScene(index);
     }
 
