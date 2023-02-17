@@ -7,7 +7,8 @@ public class SmashEffect : MonoBehaviour
 
     public GameObject Smasheffect;
     public AudioSource aas;
-    public GameObject
+    public GameObject Finishedtask;
+    
 
     void OnMouseDown()
     {
@@ -15,5 +16,11 @@ public class SmashEffect : MonoBehaviour
 
         Destroy(this.gameObject);
         Object.Instantiate(this.Smasheffect, transform.position, Quaternion.identity);
+        if() 
+        {
+            this.Finishedtask.SetActive(true);
+        }
     }
+    
+    
 }
